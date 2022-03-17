@@ -1,7 +1,7 @@
 # Suggestions-Filterer
 This script will basically take suggestions and put them in a queue (Discord Channel), if the suggestion is denied / approved, it will be removed from the queue
-if the suggestion is updated to "considered", the bot would move the suggestion from the normal queue to the "considered" queue
-once the suggestion is updated from considered to denied or approved, the bot will remove the suggestion from the queue.
+if the suggestion is updated to "considered", the bot will move the suggestion from the normal queue to the "considered" queue
+once the suggestion is updated from considered to denied or approved, the bot will remove the suggestion from the "considered" queue.
 You need Carlbot's suggestion system for this to work (Check out Carlbot over here https://carl.gg)  
 -
 We've added a python version, you will find it in the main folder "bot.py"
