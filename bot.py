@@ -30,13 +30,11 @@ async def on_message(message: disnake.Message) -> None:
 
 @bot.event
 async def on_raw_message_edit(payload: disnake.RawMessageUpdateEvent) -> None:
-    msg: disnake.Message
-    if payload.cached_message:
-        msg = payload.cached_message
-    else:
-        msg = await bot.get_channel(payload.channel_id).fetch_message(payload.message_id)
+    if not payload.message_id == SUGGESTIONS_CHANNEL:
+        return
+    msg: disnake.Message = await bot.get_channel(payload.channel_id).fetch_message(payload.message_id)
     considered = bot.get_channel(CONSIDERED_CHANNEL)
-    if msg.embeds and msg.channel.id == SUGGESTIONS_CHANNEL:
+    if msg.embeds:
         title = msg.embeds[0].title.lower()
         print("Edited raw, content now: ", title)
         if title.endswith("approved") or title.endswith("denied") or title.endswith("implemented"):
